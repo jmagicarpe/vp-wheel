@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Night City VP — Photo Gig</title>
+  <meta name="description" content="Fortune wheels for Cyberpunk 2077 virtual photography challenges.">
+  <link rel="stylesheet" href="fonts/faces.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect fill='%2307070c' width='64' height='64'/><path fill='%23fcee0a' d='M8 8h48v6H8zm0 42h48v6H8z'/><circle cx='32' cy='32' r='12' fill='none' stroke='%2300f0ff' stroke-width='4'/></svg>">
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="scanlines"></div>
+
+  <div class="app" id="studio">
+    <header>
+      <div>
+        <div class="kicker">Virtual photography // Cyberpunk 2077</div>
+        <h1>Photo Gig <span>Night City</span></h1>
+      </div>
+      <div class="header-meta">
+        <button class="icon-btn" id="mute-btn" type="button" aria-pressed="false">Sound ON</button>
+      </div>
+    </header>
+
+    <p class="lede">
+      Three wheels, one gig: a target, a visual language, a brief.
+      Too easy? Stack photo bonuses. Lock it in, screenshot, post.
+    </p>
+
+    <section class="panel cut">
+      <div class="diff-row">
+        <h2 class="diff-label">Gig difficulty</h2>
+        <div class="diff-switch" id="diff-switch" role="group" aria-label="Gig difficulty"></div>
+      </div>
+
+      <p class="hint">
+        Lock a wheel to keep it, then reroll the others. Spacebar rerolls too.
+      </p>
+      <div class="wheels" id="wheels"></div>
+
+      <div class="actions">
+        <button class="btn btn-primary cut" id="spin-btn" type="button">Roll the gig</button>
+        <button class="btn btn-ghost cut" id="reroll-btn" type="button" disabled>Reroll (unlocked)</button>
+      </div>
+
+      <div class="bonuses" id="bonuses-panel">
+        <div class="bonuses-head">
+          <div>
+            <h2>Spice the gig</h2>
+            <p>One bonus per category: Look, Technique, Scene, Format. Difficulty already rolls some of these.</p>
+          </div>
+        </div>
+        <div class="bonus-actions">
+          <button class="btn btn-ghost cut" data-bonus="traitement" type="button">+ Look</button>
+          <button class="btn btn-ghost cut" data-bonus="technique" type="button">+ Technique</button>
+          <button class="btn btn-ghost cut" data-bonus="scene" type="button">+ Scene</button>
+          <button class="btn btn-ghost cut" data-bonus="format" type="button">+ Format</button>
+        </div>
+        <div class="bonus-list" id="bonus-list"></div>
+        <div class="fixer-line" id="fixer-line" hidden></div>
+      </div>
+
+      <div class="lock-in">
+        <button class="btn btn-cyan cut" id="validate-btn" type="button" disabled>Lock in gig</button>
+      </div>
+    </section>
+  </div>
+
+  <section class="card-view" id="card-view" aria-label="Gig card">
+    <div class="card-actions no-capture">
+      <button class="btn btn-ghost cut" id="back-btn" type="button">Back</button>
+      <button class="btn btn-primary cut" id="copy-btn" type="button">Copy Discord brief</button>
+      <button class="btn btn-cyan cut" id="save-btn" type="button">Save PNG</button>
+    </div>
+    <p class="hint center">Save the card as a PNG, or screenshot it.</p>
+    <article class="gig-card cut" id="gig-card">
+      <div class="card-brand">
+        <span>Night City</span>
+        <span>PHOTO GIG</span>
+      </div>
+      <h2 class="card-title">PHOTO <span>GIG</span></h2>
+      <div class="card-fixer" id="card-fixer"></div>
+      <div class="card-rows" id="card-rows">
+        <div class="card-row"><span>TARGET</span><strong id="card-target"></strong></div>
+        <div class="card-row"><span>SHOT</span><strong id="card-shot"></strong></div>
+        <div class="card-row"><span>BRIEF</span><strong id="card-brief"></strong></div>
+      </div>
+      <div class="card-foot">
+        <span id="card-code">NC-0000</span>
+        <span>Virtual photography</span>
+      </div>
+    </article>
+  </section>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="js/html-to-image.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
