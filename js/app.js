@@ -4,7 +4,7 @@
   const WHEEL_META = {
     target: { title: "TARGET", accent: "#ff2bd6", colors: ["#2a1024", "#4a1538"], list: DATA.targets },
     shot: { title: "SHOT", accent: "#00f0ff", colors: ["#062428", "#0b3d48"], list: DATA.shots },
-    brief: { title: "BRIEF", accent: "#fcee0a", colors: ["#2a2608", "#4a420c"], list: DATA.briefs }
+    brief: { title: "MOOD", accent: "#fcee0a", colors: ["#2a2608", "#4a420c"], list: DATA.briefs }
   };
   const CATEGORY_LABELS = {
     traitement: "LOOK",
@@ -468,7 +468,7 @@
       `Payout: ${formatEddies(state.contract.eddies)}`,
       `Target: ${state.result.target.label}`,
       `Shot: ${state.result.shot.label}`,
-      `Brief: ${state.result.brief.label}`
+      `Mood: ${state.result.brief.label}`
     ];
     if (state.bonuses.length) {
       lines.push(`Bonus: ${state.bonuses.map((bonus) => `${bonus.item.label} (${formatEddies(bonus.item.eddies)})`).join(" · ")}`);
